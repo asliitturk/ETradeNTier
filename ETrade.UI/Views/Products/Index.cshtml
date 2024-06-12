@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table">
+    <thead>
+    <th>
+            @Html.DisplayNameFor(x => x.Name)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.Category)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.Image)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.Stock)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.Price)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.IsHome)
+    </th>
+    <th>
+            @Html.DisplayNameFor(x => x.IsApproved)
+    </th>
+    <th>Settings</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+               <td>
+                    @Html.DisplayFor(x => item.Name)
+               </td>
+                <td>
+                    @Html.DisplayFor(x => item.Category.Name)
+                </td>
+                <td>
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.Image)" width="75" height="75"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.IsHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.IsApproved)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+

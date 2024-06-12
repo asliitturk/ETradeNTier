@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AppRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Role</h1>
+<hr />
+<a asp-action="Create" class="btn btn-primary">Create Role</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Product>
+
+@foreach (var product in Model)
+{
+    <div class="col">
+        <div class="card h-100">
+            <img src="data:image/jpeg;base64,@Convert.ToBase64String(product.Image)" width="75" height="75" />
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/Home/Details/@product.Id">@product.Name</a>
+                </h5>
+                <p class="card-text">
+                    @product.Description
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@product.Price.ToString("c")</small>
+                <a href="/Home/Details/@product.Id" class="btn btn-primary btn-sm float-end">
+                    <i class="fa-solid fa-angles-right"></i>
+                    Product Details
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+
+

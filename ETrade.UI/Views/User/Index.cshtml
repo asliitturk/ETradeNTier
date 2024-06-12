@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Users</h1>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <a class="btn btn-danger btn-sm" onclick="return confirm('Silmek istediğine emin misin?')" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a class="btn btn-warning btn-sm" asp-action="RoleAssign" asp-route-id="@item.Id">Role Assigment</a>
+                        </td>
+                    </tr>     
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Category</h4>
+    <dl class="col-sm-2">
+        <dt class="row">
+            @Html.DisplayNameFor(x => x.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(x => x.Name)
+        </dd>
+        <dt class="row">
+            @Html.DisplayNameFor(x => x.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(x => x.Description)
+        </dd>
+        <dt class="row">
+            @Html.DisplayNameFor(x => x.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(x => x.CreatedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-primary">Back To List</a>
+</div>
+

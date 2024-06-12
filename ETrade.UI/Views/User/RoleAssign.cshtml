@@ -1,0 +1,38 @@
+﻿@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "RoleAssign";
+}
+
+<div class="container">
+    <h2 class="text-dark">Role Assign for @ViewBag.Username</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Rol Adı</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" asp-for="@Model[i].HasAssign" id="roleCheckBox-@i"/>
+                                    <label class="form-check-label" for="roleCheckBox-@i">@Model[i].Name</label>
+                                    <input type="hidden" asp-for="@Model[i].Id" />
+                                    <input type="hidden" asp-for="@Model[i].Name" />
+                                </div>
+                            </td>
+                        </tr>
+                    }
+              </tbody>
+          </table>
+        </div>
+        <button class="btn btn-primary" type="submit">Role Assign</button>
+    }
+</div>
+

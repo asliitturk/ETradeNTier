@@ -1,0 +1,31 @@
+﻿@model OrderStateViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@Model.OrderNumber</h1>
+<h2>Edit</h2> 
+<hr />
+
+@using (Html.BeginForm())
+{
+    <table class="table table-bordered table-striped w-25">
+        <thead>
+            <tr>
+                <th>Order State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" asp-for="@Model.IsCompleted"/>
+                    Completed
+                    <input type="hidden" asp-for="@Model.OrderId"/>
+                    <input type="hidden" asp-for="@Model.OrderNumber"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" type="submit">Order State Confirm</button>
+}
+
